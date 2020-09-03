@@ -192,7 +192,7 @@ class DiscordWebSocket(websockets.client.WebSocketClientProtocol):
 
     @classmethod
     @asyncio.coroutine
-    def from_client(cls, client, *, resume=False, intents=0b111111111111111):
+    def from_client(cls, client, *, resume=False):
         """Creates a main websocket for Discord from a :class:`Client`.
 
         This is for internal use only.
@@ -213,7 +213,7 @@ class DiscordWebSocket(websockets.client.WebSocketClientProtocol):
         ws.gateway = gateway
         ws.shard_id = client.shard_id
         ws.shard_count = client.shard_count
-        ws.intents = intents
+        ws.intents = client.intents
 
         client.connection._update_references(ws)
 
