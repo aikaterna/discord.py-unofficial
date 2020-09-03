@@ -1,6 +1,7 @@
 # What this fork is about
 
 This fork is based on the v0.16.12 version of discord.py and aims to update it for Discord's API version 7, including the new endpoint and Gateway Intents.
+Versions after `v0.17.0` will be stable.
 
 # Note for Migration
 
@@ -37,8 +38,8 @@ client = discord.Client(intents=0b1000001)
 
 # discord.py
 
-[![PyPI](https://img.shields.io/pypi/v/discord.py-unofficial.svg)](https://pypi.python.org/pypi/discord.py/)
-[![PyPI](https://img.shields.io/pypi/pyversions/discord.py-unofficial.svg)](https://pypi.python.org/pypi/discord.py/)
+[![PyPI](https://img.shields.io/pypi/v/discord.py-unofficial.svg)](https://pypi.python.org/pypi/discord.py-unofficial/)
+[![PyPI](https://img.shields.io/pypi/pyversions/discord.py-unofficial.svg)](https://pypi.python.org/pypi/discord.py-unofficial/)
 
 discord.py is an API wrapper for Discord written in Python.
 
