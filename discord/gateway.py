@@ -277,8 +277,8 @@ class DiscordWebSocket(websockets.client.WebSocketClientProtocol):
                 'token': self.token,
                 'properties': {
                     '$os': sys.platform,
-                    '$browser': 'discord.py - v0.17.0',
-                    '$device': 'discord.py - v0.17.0',
+                    '$browser': 'discord.py-unofficial - v0.17+',
+                    '$device': 'discord.py-unofficial - v0.17+',
                     '$referrer': '',
                     '$referring_domain': ''
                 },
