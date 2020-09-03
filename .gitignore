@@ -2,6 +2,9 @@
 *.pyc
 *.log
 docs/_build
+/build
+*.egg-info
+/dist
 *.buildinfo
 *.mp3
 *.m4a
