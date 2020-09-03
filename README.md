@@ -5,6 +5,7 @@ This fork is based on the v0.16.12 version of discord.py and aims to update it f
 # Note for Migration
 
 From version `v0.17.0-beta.4` onwards (ie. all functional versions), the file name for importing was changed from `discord` to `discord_unofficial` to prevent conflict with the updated main `discord.py` library. You will need to change your import code to `import discord_unofficial as discord` instead.
+Due to updates in the aiohttp library, this does not support Python 3.4 anymore. The minimal supported version is Python 3.5.3. Although, I have only tested this on Python 3.6 and 3.7, and have not tested this with Python 3.8 and later, so I cannot confirm if this will work with those versions.
 
 # How to use Gateway Intents
 
