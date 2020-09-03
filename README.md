@@ -65,16 +65,16 @@ I recommend joining either the [official discord.py server][guild] or the [Disco
 To install the library without full voice support, you can just run the following command:
 
 ```
-python3 -m pip install -U discord.py
+python3 -m pip install -U discord.py-unofficial
 ```
 
-Otherwise to get voice support you should run the following command:
+Otherwise to get voice support you should run the following command: (Not supported)
 
 ```
 python3 -m pip install -U discord.py[voice]
 ```
 
-To install the development version, do the following:
+To install the development version, do the following: (Not supported)
 
 ```
 python3 -m pip install -U https://github.com/Rapptz/discord.py/archive/master.zip#egg=discord.py[voice]
@@ -83,9 +83,9 @@ python3 -m pip install -U https://github.com/Rapptz/discord.py/archive/master.zi
 or the more long winded from cloned source:
 
 ```
-$ git clone https://github.com/Rapptz/discord.py
-$ cd discord.py
-$ python3 -m pip install -U .[voice]
+$ git clone https://github.com/RandomGamer123/discord.py-unofficial
+$ cd discord.py-unofficial
+$ python3 -m pip install -U 
 ```
 
 Please note that on Linux installing voice you must install the following packages via your favourite package manager (e.g. `apt`, `yum`, etc) before running the above command:
@@ -96,7 +96,7 @@ Please note that on Linux installing voice you must install the following packag
 ## Quick Example
 
 ```py
-import discord
+import discord_unofficial as discord
 import asyncio
 
 client = discord.Client()
@@ -127,11 +127,11 @@ client.run('token')
 
 Note that in Python 3.4 you use `@asyncio.coroutine` instead of `async def` and `yield from` instead of `await`.
 
-You can find examples in the examples directory.
+You can find examples in the examples directory. (Examples are not updated).
 
 ## Requirements
 
-- Python 3.4.2+
+- Python 3.5.3+
 - `aiohttp` library
 - `websockets` library
 - `PyNaCl` library (optional, for voice only)
