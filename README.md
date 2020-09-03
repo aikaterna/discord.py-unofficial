@@ -11,11 +11,14 @@ discord.py is an API wrapper for Discord written in Python.
 
 This was written to allow easier writing of bots or chat logs. Make sure to familiarise yourself with the API using the [documentation][doc].
 
+This was modified to allow old bots that still ran on the async branch (`v0.16.12`) of the [original discord.py library][dpygithub] made by Rapptz to be compatible with Discord's upcoming v7 api.
+
 [doc]: http://discordpy.rtfd.org/en/latest
+[dpygithub]: https://github.com/Rapptz/discord.py
 
 ### Breaking Changes
 
-The discord API is constantly changing and the wrapper API is as well. There will be no effort to keep backwards compatibility in versions before `v1.0.0`.
+The discord API is constantly changing and the wrapper API is as well. Unlike the original async branch, there will be an effort to keep backwards compatibility in all versions of this, beginning with `v0.17.0`.
 
 I recommend joining either the [official discord.py server][guild] or the [Discord API server][ch] for help and discussion about the library.
 
