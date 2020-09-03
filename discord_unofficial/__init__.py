@@ -16,8 +16,8 @@ A basic wrapper for the Discord API.
 __title__ = 'discord'
 __author__ = 'RandomGamer123'
 __license__ = 'MIT'
-__copyright__ = 'Copyright 2015-2020 Rapptz, Copyright 2020 RandomGame123'
-__version__ = '0.17.0-beta.7'
+__copyright__ = 'Copyright 2015-2020 Rapptz, Copyright 2020 Donald Burr, Copyright 2020 RandomGamer123'
+__version__ = '0.17.0-beta.8'
 
 from .client import Client, AppInfo, ChannelPermissions
 from .user import User
@@ -45,7 +45,7 @@ import logging
 
 VersionInfo = namedtuple('VersionInfo', 'major minor micro releaselevel serial')
 
-version_info = VersionInfo(major=0, minor=17, micro=0, releaselevel='beta', serial=7)
+version_info = VersionInfo(major=0, minor=17, micro=0, releaselevel='beta', serial=8)
 
 try:
     from logging import NullHandler
