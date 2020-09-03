@@ -27,28 +27,13 @@ import copy
 from . import utils
 from .permissions import Permissions, PermissionOverwrite
 from .enums import ChannelType
+from collections import namedtuple
 from .mixins import Hashable
 from .role import Role
 from .user import User
 from .member import Member
 
-class Overwrites:
-    # Thanks to Donald Burr from Stack Overflow for pointing this part of code out that was made by Rapptz
-    __slots__ = ('id', 'allow', 'deny', 'type')
-
-    def __init__(self, **kwargs):
-        self.id = kwargs.pop('id')
-        self.allow = kwargs.pop('allow', 0)
-        self.deny = kwargs.pop('deny', 0)
-        self.type = kwargs.pop('type')
-
-    def _asdict(self):
-        return {
-            'id': self.id,
-            'allow': self.allow,
-            'deny': self.deny,
-            'type': self.type,
-        }
+Overwrites = namedtuple('Overwrites', 'id allow deny type deny_new allow_new') # Fix from Pieter-Jan Briers of Stack Overflow
 
 class Channel(Hashable):
     """Represents a Discord server channel.
