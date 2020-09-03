@@ -3,7 +3,6 @@
 The MIT License (MIT)
 
 Copyright (c) 2015-2020 Rapptz
-Copyright (c) 2020 Donald Burr
 
 Permission is hereby granted, free of charge, to any person obtaining a
 copy of this software and associated documentation files (the "Software"),
@@ -34,7 +33,7 @@ from .user import User
 from .member import Member
 
 class Overwrites:
-    # Courtesy of Donald Burr from Stack Overflow
+    # Thanks to Donald Burr from Stack Overflow for pointing this part of code out that was made by Rapptz
     __slots__ = ('id', 'allow', 'deny', 'type')
 
     def __init__(self, **kwargs):
