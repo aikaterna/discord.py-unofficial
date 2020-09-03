@@ -2,6 +2,27 @@
 
 This fork is based on the v0.16.12 version of discord.py and aims to update it for Discord's API version 7, including the new endpoint and Gateway Intents.
 
+# How to use Gateway Intents
+
+By default, this will subscribe you to all intents, including privileged intents. To specify which intents to use, you should do so when creating the `Client` object. 
+
+Doing the following will subscribe you to all non-privileged intents:
+```py
+client = discord.Client(use_privileged_intents=False)
+```
+
+While doing the following will allow you to specify which intents you wish to subscribe to (In the case that `use_privileged_intents` is set to ``False``, privileged intents will be not subscribed to even if they were set)
+
+```py
+client = discord.Client(use_privileged_intents=False, intents=0b1000011)
+```
+
+``0b1000011`` corresponds to the `GUILD_INVITES`, `GUILD_MEMBERS` and `GUILDS` Gateway intents respectively, however, as `GUILD_MEMBERS` is a privileged intent, and `use_privileged_intents` was set to ``False``, it will not be subscribed to. So the above code is the same as the following.
+
+```py
+client = discord.Client(intents=0b1000001)
+```
+
 # discord.py
 
 [![PyPI](https://img.shields.io/pypi/v/discord.py.svg)](https://pypi.python.org/pypi/discord.py/)
