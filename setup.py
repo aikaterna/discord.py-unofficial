@@ -11,7 +11,7 @@ if on_rtd:
   requirements.append('sphinxcontrib-napoleon')
 
 version = ''
-with open('discord/__init__.py') as f:
+with open('discord-unofficial/__init__.py') as f:
     version = re.search(r'^__version__\s*=\s*[\'"]([^\'"]*)[\'"]', f.read(), re.MULTILINE).group(1)
 
 if not version:
