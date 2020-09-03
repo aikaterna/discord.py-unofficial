@@ -3,7 +3,9 @@
 """
 The MIT License (MIT)
 
-Copyright (c) 2015-2016 Rapptz
+Copyright (c) 2015-2020 Rapptz
+Copyright (c) 2020 RandomGamer123
+Note: Copyright for portions of project discord.py are held by Rapputz. All other copyright for the project is held by RandomGamer123.
 
 Permission is hereby granted, free of charge, to any person obtaining a
 copy of this software and associated documentation files (the "Software"),
@@ -103,6 +105,12 @@ class Client:
         Indicates if :meth:`login` should cache the authentication tokens. Defaults
         to ``True``. The method in which the cache is written is done by writing to
         disk to a temporary directory.
+    use_privileged_intents : Optional[bool]
+        Indicates if privileged intents will be used. Defaults to ``True``.
+    intents : Optional[int]
+        The gateway `intents` to use when identifying. Defaults to ``0b111111111111111``.
+        If `use_privileged_intents` is ``False``, privileged intents will not be set even
+        if they are set here.
     connector : aiohttp.BaseConnector
         The `connector`_ to use for connection pooling. Useful for proxies, e.g.
         with a `ProxyConnector`_.
@@ -134,7 +142,7 @@ class Client:
         The websocket gateway the client is currently connected to. Could be None.
     loop
         The `event loop`_ that the client uses for HTTP requests and websocket operations.
-
+    
     """
     def __init__(self, *, loop=None, **options):
         self.ws = None
@@ -144,7 +152,11 @@ class Client:
         self.cache_auth = options.get('cache_auth', True)
         self.shard_id = options.get('shard_id')
         self.shard_count = options.get('shard_count')
-
+        self.intents = options.get('intents',0b111111111111111)
+        use_privileged_intents = options.get('use_privileged_intents', True)
+        if not(use_privileged_intents):
+            self.intents = self.intents & 0b111111011111101
+        
         max_messages = options.get('max_messages')
         if max_messages is None or max_messages < 100:
             max_messages = 5000
