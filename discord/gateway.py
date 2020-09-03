@@ -192,7 +192,7 @@ class DiscordWebSocket(websockets.client.WebSocketClientProtocol):
 
     @classmethod
     @asyncio.coroutine
-    def from_client(cls, client, *, resume=False):
+    def from_client(cls, client, *, resume=False, privileged_intents=True):
         """Creates a main websocket for Discord from a :class:`Client`.
 
         This is for internal use only.
@@ -213,6 +213,7 @@ class DiscordWebSocket(websockets.client.WebSocketClientProtocol):
         ws.gateway = gateway
         ws.shard_id = client.shard_id
         ws.shard_count = client.shard_count
+        ws.privileged_intents = privileged_intents
 
         client.connection._update_references(ws)
 
@@ -270,6 +271,10 @@ class DiscordWebSocket(websockets.client.WebSocketClientProtocol):
     @asyncio.coroutine
     def identify(self):
         """Sends the IDENTIFY packet."""
+        if ws.privileged_intents:
+            intentvalue = 32767
+        else:
+            intentvalue = 32509
         payload = {
             'op': self.IDENTIFY,
             'd': {
@@ -281,7 +286,7 @@ class DiscordWebSocket(websockets.client.WebSocketClientProtocol):
                     '$referrer': '',
                     '$referring_domain': ''
                 },
-                'intents': 32767,
+                'intents': intentvalue,
                 'compress': True,
                 'large_threshold': 250,
                 'v': 3
