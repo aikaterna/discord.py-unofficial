@@ -1,3 +1,7 @@
+# What this fork is about
+
+This fork is based on the v0.16.12 version of discord.py and aims to update it for Discord's API version 7, including the new endpoint and Gateway Intents.
+
 # discord.py
 
 [![PyPI](https://img.shields.io/pypi/v/discord.py.svg)](https://pypi.python.org/pypi/discord.py/)
