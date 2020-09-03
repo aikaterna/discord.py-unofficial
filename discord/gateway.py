@@ -386,6 +386,8 @@ class DiscordWebSocket(websockets.client.WebSocketClientProtocol):
         except AttributeError:
             log.info('Unhandled event {}'.format(event))
         else:
+            print(func)
+            print(event)
             func(data)
 
         # remove the dispatched listeners
