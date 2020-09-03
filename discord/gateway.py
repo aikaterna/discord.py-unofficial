@@ -3,7 +3,9 @@
 """
 The MIT License (MIT)
 
-Copyright (c) 2015-2016 Rapptz
+Copyright (c) 2015-2020 Rapptz
+Copyright (c) 2020 RandomGamer123
+Note: Copyright for portions of project discord.py are held by Rapputz. All other copyright for the project is held by RandomGamer123.
 
 Permission is hereby granted, free of charge, to any person obtaining a
 copy of this software and associated documentation files (the "Software"),
@@ -274,11 +276,12 @@ class DiscordWebSocket(websockets.client.WebSocketClientProtocol):
                 'token': self.token,
                 'properties': {
                     '$os': sys.platform,
-                    '$browser': 'discord.py',
-                    '$device': 'discord.py',
+                    '$browser': 'discord.py - v0.17.0',
+                    '$device': 'discord.py - v0.17.0',
                     '$referrer': '',
                     '$referring_domain': ''
                 },
+                'intents': 32767,
                 'compress': True,
                 'large_threshold': 250,
                 'v': 3
