@@ -2,7 +2,8 @@
 """
 The MIT License (MIT)
 
-Copyright (c) 2015-2016 Rapptz
+Copyright (c) 2015-2020 Rapptz
+Copyright (c) 2020 Donald Burr
 
 Permission is hereby granted, free of charge, to any person obtaining a
 copy of this software and associated documentation files (the "Software"),
@@ -27,13 +28,28 @@ import copy
 from . import utils
 from .permissions import Permissions, PermissionOverwrite
 from .enums import ChannelType
-from collections import namedtuple
 from .mixins import Hashable
 from .role import Role
 from .user import User
 from .member import Member
 
-Overwrites = namedtuple('Overwrites', 'id allow deny type')
+class Overwrites:
+    # Courtesy of Donald Burr from Stack Overflow
+    __slots__ = ('id', 'allow', 'deny', 'type')
+
+    def __init__(self, **kwargs):
+        self.id = kwargs.pop('id')
+        self.allow = kwargs.pop('allow', 0)
+        self.deny = kwargs.pop('deny', 0)
+        self.type = kwargs.pop('type')
+
+    def _asdict(self):
+        return {
+            'id': self.id,
+            'allow': self.allow,
+            'deny': self.deny,
+            'type': self.type,
+        }
 
 class Channel(Hashable):
     """Represents a Discord server channel.
