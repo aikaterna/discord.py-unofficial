@@ -112,11 +112,11 @@ class Channel(Hashable):
         everyone_id = self.server.id
 
         for index, overridden in enumerate(kwargs.get('permission_overwrites', [])):
-            print "index"+str(index)
-            print "overridden"+str(overridden)
-            print "kwargs"+str(kwargs.get('permission_overwrites', []))
+            print("index"+str(index))
+            print("overridden"+str(overridden))
+            print("kwargs"+str(kwargs.get('permission_overwrites', [])))
             overridden_id = overridden['id']
-            print "overridden_id"+str(overridden_id)
+            print("overridden_id"+str(overridden_id))
             self._permission_overwrites.append(Overwrites(**overridden))
 
             if overridden.get('type') == 'member':
