@@ -3,7 +3,10 @@
 """
 The MIT License (MIT)
 
-Copyright (c) 2015-2016 Rapptz
+Copyright (c) 2015-2020 Rapptz
+Copyright (c) 2020 RandomGamer123
+
+Note: Copyright for portions of project discord.py are held by Rapputz. All other copyright for the project is held by RandomGamer123.
 
 Permission is hereby granted, free of charge, to any person obtaining a
 copy of this software and associated documentation files (the "Software"),
@@ -46,7 +49,7 @@ def json_or_text(response):
     return text
 
 class Route:
-    BASE = 'https://discordapp.com/api/v6'
+    BASE = 'https://discord.com/api/v7'
 
     def __init__(self, method, path, **parameters):
         self.path = path
