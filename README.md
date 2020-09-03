@@ -36,16 +36,18 @@ client = discord.Client(intents=0b1000001)
 
 # discord.py
 
-[![PyPI](https://img.shields.io/pypi/v/discord.py.svg)](https://pypi.python.org/pypi/discord.py/)
-[![PyPI](https://img.shields.io/pypi/pyversions/discord.py.svg)](https://pypi.python.org/pypi/discord.py/)
+[![PyPI](https://img.shields.io/pypi/v/discord.py-unofficial.svg)](https://pypi.python.org/pypi/discord.py/)
+[![PyPI](https://img.shields.io/pypi/pyversions/discord.py-unofficial.svg)](https://pypi.python.org/pypi/discord.py/)
 
 discord.py is an API wrapper for Discord written in Python.
 
 This was written to allow easier writing of bots or chat logs. Make sure to familiarise yourself with the API using the [documentation][doc].
 
+This fork runs on v0.16.12 for the most part, the original documentation for that can be found [here][docv01612]
 This was modified to allow old bots that still ran on the async branch (`v0.16.12`) of the [original discord.py library][dpygithub] made by Rapptz to be compatible with Discord's upcoming v7 api.
 
 [doc]: http://discordpy.rtfd.org/en/latest
+[docv01612]: https://discordpy.readthedocs.io/en/v0.16.12/
 [dpygithub]: https://github.com/Rapptz/discord.py
 
 ### Breaking Changes
