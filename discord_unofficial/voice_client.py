@@ -224,7 +224,7 @@ class VoiceClient:
         self._connected = asyncio.Event(loop=self.loop)
         self.token = data.get('token')
         self.guild_id = data.get('guild_id')
-        self.endpoint = data.get('endpoint')
+        self.endpoint = data.get('endpoint').split(':')[0]
         self.sequence = 0
         self.timestamp = 0
         self.encoder = opus.Encoder(48000, 2)
