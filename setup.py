@@ -11,7 +11,7 @@ if on_rtd:
   requirements.append('sphinxcontrib-napoleon')
 
 version = ''
-with open('discord_unofficial/__init__.py') as f:
+with open('discord/__init__.py') as f:
     version = re.search(r'^__version__\s*=\s*[\'"]([^\'"]*)[\'"]', f.read(), re.MULTILINE).group(1)
 
 if not version:
@@ -29,7 +29,7 @@ setup(name='discord.py-unofficial',
       author='RandomGamer123',
       url='https://github.com/RandomGamer123/discord.py-unofficial',
       version=version,
-      packages=['discord_unofficial', 'discord_unofficial.ext.commands'],
+      packages=['discord', 'discord.ext.commands'],
       license='MIT',
       description='A python wrapper for the Discord API',
       long_description=readme,

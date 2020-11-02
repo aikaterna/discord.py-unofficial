@@ -25,7 +25,7 @@ DEALINGS IN THE SOFTWARE.
 """
 
 import asyncio
-import discord_unofficial as discord
+import discord
 import inspect
 import importlib
 import sys
