@@ -646,6 +646,7 @@ class DiscordVoiceWebSocket(websockets.client.WebSocketClientProtocol):
         state = self._connection
         state.ssrc = data.get('ssrc')
         state.voice_port = data.get('port')
+        state.endpoint_ip = data.get('ip')
         packet = bytearray(70)
         struct.pack_into('>I', packet, 0, state.ssrc)
         state.socket.sendto(packet, (state.endpoint_ip, state.voice_port))
@@ -685,5 +686,3 @@ class DiscordVoiceWebSocket(websockets.client.WebSocketClientProtocol):
             self._keep_alive.stop()
 
         yield from super().close_connection(force=force)
-
-
