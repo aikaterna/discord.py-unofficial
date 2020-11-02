@@ -26,7 +26,7 @@ DEALINGS IN THE SOFTWARE.
 
 import asyncio
 import inspect
-import discord
+import discord_unofficial as discord
 import functools
 
 from .errors import *

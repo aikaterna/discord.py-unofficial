@@ -386,8 +386,7 @@ class DiscordWebSocket(websockets.client.WebSocketClientProtocol):
         except AttributeError:
             log.info('Unhandled event {}'.format(event))
         else:
-            print(func)
-            print(event)
+            log.debug('Event recieved: {}'.format(event))
             func(data)
 
         # remove the dispatched listeners
@@ -516,11 +515,11 @@ class DiscordWebSocket(websockets.client.WebSocketClientProtocol):
             self._connection._remove_voice_client(guild_id)
 
     @asyncio.coroutine
-    def close_connection(self, force=False):
+    def close_connection(self):
         if self._keep_alive:
             self._keep_alive.stop()
 
-        yield from super().close_connection(force=force)
+        yield from super().close_connection()
 
 class DiscordVoiceWebSocket(websockets.client.WebSocketClientProtocol):
     """Implements the websocket protocol for handling voice connections.
@@ -677,12 +676,13 @@ class DiscordVoiceWebSocket(websockets.client.WebSocketClientProtocol):
         try:
             msg = yield from asyncio.wait_for(self.recv(), timeout=30.0, loop=self.loop)
             yield from self.received_message(json.loads(msg))
-        except websockets.exceptions.ConnectionClosed as e:
+        except (websockets.exceptions.ConnectionClosed, asyncio.TimeoutError) as e:
+            log.debug('voice connection closed')
             raise ConnectionClosed(e) from e
 
     @asyncio.coroutine
-    def close_connection(self, force=False):
+    def close_connection(self):
         if self._keep_alive:
             self._keep_alive.stop()
 
-        yield from super().close_connection(force=force)
+        yield from super().close_connection()
